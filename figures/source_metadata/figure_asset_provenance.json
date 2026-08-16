@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "manuscript_version": "v10.6",
+  "docx_filename": "QACE_manuscript_v10_6_format_ready.docx",
+  "pdf_filename": "QACE_manuscript_v10_6_format_ready.pdf",
+  "docx_sha256": "604d83b383db8a5f09c9ac95ef354fb29474b50423a63b9ee681b1c38199d10d",
+  "pdf_sha256": "790c0e74ec5378e990b03a513be0250936564ed7aae6265efc0c8dd0002b6dd3",
+  "editable_vector_source_found": false,
+  "same_version_figure_script_found": false,
+  "notes": "PNG assets are exact copies of DOCX embedded media. PDF correspondence is by image object, dimensions, aspect ratio, and scale-normalized pixels. Figure 3 is the v10.6 three-panel result figure.",
+  "figures": {
+    "figure1": {
+      "package_file": "figures/figure1_v106_docx_submission_equivalent.png",
+      "source_docx_member": "word/media/image1.png",
+      "source_format": "PNG",
+      "package_sha256": "9d72d42a00d9a845818d16cf81587a80161fa74d260575ada28a741d1bdcf517",
+      "docx_media_sha256": "9d72d42a00d9a845818d16cf81587a80161fa74d260575ada28a741d1bdcf517",
+      "docx_dimensions_px": [
+        4110,
+        3897
+      ],
+      "pdf_image_object": 119,
+      "pdf_encoded_stream_sha256": "942a00fac003e3e5f865b6546b36af87ac6eabec8271e4f9947a903c423a140b",
+      "pdf_encoded_format": "png",
+      "pdf_dimensions_px": [
+        1859,
+        1763
+      ],
+      "scale_normalized_mean_absolute_error": 1.907290029700306,
+      "same_version_as_v106": true,
+      "editable_vector_source_found": false,
+      "panel_count": null
+    },
+    "figure2": {
+      "package_file": "figures/figure2_v106_docx_submission_equivalent.png",
+      "source_docx_member": "word/media/image2.png",
+      "source_format": "PNG",
+      "package_sha256": "4f78b19f590502c5110181fb27ea1f7cafa85c5cd6f0af098d8aa97ffdf9ff68",
+      "docx_media_sha256": "4f78b19f590502c5110181fb27ea1f7cafa85c5cd6f0af098d8aa97ffdf9ff68",
+      "docx_dimensions_px": [
+        4110,
+        2314
+      ],
+      "pdf_image_object": 227,
+      "pdf_encoded_stream_sha256": "6eca65f49e5e1d054284ff7456b49b25c96e3ca49f0faa6e161c893b337d7513",
+      "pdf_encoded_format": "jpeg",
+      "pdf_dimensions_px": [
+        1860,
+        1047
+      ],
+      "scale_normalized_mean_absolute_error": 0.9174627658716891,
+      "same_version_as_v106": true,
+      "editable_vector_source_found": false,
+      "panel_count": null
+    },
+    "figure3": {
+      "package_file": "figures/figure3_v106_docx_submission_equivalent.png",
+      "source_docx_member": "word/media/image3.png",
+      "source_format": "PNG",
+      "package_sha256": "f4ab7d1be076f77c9127c2be68652636cbcb9ac9cf46b0e88054e0c844fde762",
+      "docx_media_sha256": "f4ab7d1be076f77c9127c2be68652636cbcb9ac9cf46b0e88054e0c844fde762",
+      "docx_dimensions_px": [
+        4110,
+        2433
+      ],
+      "pdf_image_object": 368,
+      "pdf_encoded_stream_sha256": "97d1baa3d64f1a2430ad199fc30f186d0ec3bec5ad38628fc05381eb66812cff",
+      "pdf_encoded_format": "jpeg",
+      "pdf_dimensions_px": [
+        1920,
+        1137
+      ],
+      "scale_normalized_mean_absolute_error": 1.2409423482002166,
+      "same_version_as_v106": true,
+      "editable_vector_source_found": false,
+      "panel_count": 3
+    }
+  }
+}

@@ -1,0 +1,12 @@
+# Keep text assets portable and hash-stable across Windows and Linux.
+* text=auto eol=lf
+
+# Preserve binary figure and office/PDF assets byte-for-byte.
+*.png binary
+*.pdf binary
+*.doc binary
+*.docx binary
+*.eps binary
+*.svg binary
+*.zip binary
+*.gz binary

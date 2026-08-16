@@ -1,0 +1,27 @@
+{
+  "schema_version": "qace_v10_musique_aggregate_config.v1",
+  "dataset_scope": "MuSiQue paragraph-native fixed-pool aggregate validation",
+  "sample_count": 2417,
+  "paragraph_pool_count": 48315,
+  "rounds": 2,
+  "configurations": {
+    "P5": "Parent-order fixed-5",
+    "R5_F5": "Identical-selection alias for BGE raw-rank fixed-5 and floor-gated fixed-5",
+    "D6": "BGE floor-gated fixed-6"
+  },
+  "selection": {
+    "reranker_family": "BAAI/bge-reranker-large",
+    "support_granularity": "paragraph"
+  },
+  "generation": {
+    "model_family": "llama3:8b",
+    "temperature": 0.0,
+    "seed": 20260730,
+    "top_k": 1,
+    "top_p": 1.0,
+    "num_predict": 128,
+    "num_ctx": 3900
+  },
+  "derived_joint_definition": "mean of per-example answer F1 multiplied by paragraph-support F1",
+  "claim_boundary": "fixed-pool external validation; not an end-to-end KG2RAG replication; rounds are not pooled"
+}

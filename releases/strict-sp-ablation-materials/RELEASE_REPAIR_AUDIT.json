@@ -1,0 +1,66 @@
+{
+  "source_candidate": "verified predecessor staging package (path-free reference)",
+  "source_candidate_manifest_sha256": "dcd8e1e178d94250644e78568c936fb5566a624825d4e32e8af777fe845cfd49",
+  "author_authority_docx": "verified v11.3 author-metadata DOCX (path-free reference)",
+  "author_authority_docx_sha256": "aa84b1140d13e7bda3050a23d69f37b2564c09b9ac709345e29a01c58b237def",
+  "author_metadata_transferred": {
+    "names": true,
+    "orcid": true,
+    "affiliations": true,
+    "private_emails_copied": false
+  },
+  "metadata_changes_only": true,
+  "raw_or_item_level_content_added": false,
+  "numerical_recheck": {
+    "aggregate_source_sha256": "e234fbc0c2abf484626e9f9e54a10ef457f623934d66edf4b1b993e7849d687a",
+    "comparison_source_sha256": "5f7321699729737115f7b0b83fe1f90645a1961db2dbd00f64c20d25f3fac53b",
+    "byte_identical_to_final_accepted_aggregate": true,
+    "byte_identical_to_final_accepted_comparisons": true,
+    "configuration_rows": 13,
+    "comparison_rows": 40,
+    "panel_a_7_of_7_exact": true,
+    "panel_b_5_of_5_exact": true,
+    "panel_b_detail_20_of_20_exact": true,
+    "bootstrap_replicates": [
+      "20000"
+    ],
+    "holm_family_counts": {
+      "configuration_level": 12,
+      "component_level_ablation": 20,
+      "sensitivity_analysis": 8
+    },
+    "pass": true
+  },
+  "sensitive_content_scan": {
+    "forbidden_file_paths": [],
+    "forbidden_csv_headers": [],
+    "absolute_paths": [],
+    "ip_addresses": [],
+    "credential_assignments": [],
+    "hosts_or_endpoints": [],
+    "historical_materials": [],
+    "pass": true
+  },
+  "private_staging_ready": true,
+  "public_release_ready": false,
+  "public_release_open_items": [
+    "rights-holder-approved licence",
+    "aggregate-result redistribution rights",
+    "HotpotQA terms and attribution",
+    "third-party notices",
+    "author-confirmed repository URL/release tag/DOI/citation metadata"
+  ],
+  "inventory": {
+    "actual_package_file_count": 32,
+    "inventory_includes_self": true,
+    "inventory_includes_manifest": true
+  },
+  "portable_manifest": {
+    "entry_count": 31,
+    "all_relative": true,
+    "duplicates": false,
+    "unlisted": [],
+    "extra": [],
+    "hashes_valid": true
+  }
+}

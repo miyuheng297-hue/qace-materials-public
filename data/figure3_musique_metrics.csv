@@ -1,0 +1,19 @@
+run,configuration,metric,value_percent
+run_1,P5,Answer F1,11.3512
+run_1,P5,Paragraph Support F1,16.4565
+run_1,P5,Derived Joint,2.8979
+run_1,R5_F5,Answer F1,28.5781
+run_1,R5_F5,Paragraph Support F1,51.6083
+run_1,R5_F5,Derived Joint,16.1982
+run_1,D6,Answer F1,27.7185
+run_1,D6,Paragraph Support F1,47.9619
+run_1,D6,Derived Joint,14.2570
+run_2,P5,Answer F1,11.2623
+run_2,P5,Paragraph Support F1,16.4565
+run_2,P5,Derived Joint,2.8677
+run_2,R5_F5,Answer F1,28.6837
+run_2,R5_F5,Paragraph Support F1,51.6083
+run_2,R5_F5,Derived Joint,16.2961
+run_2,D6,Answer F1,27.7185
+run_2,D6,Paragraph Support F1,47.9619
+run_2,D6,Derived Joint,14.2570

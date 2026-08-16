@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "Please cite the QACE manuscript and identify this sanitized strict SP-only aggregate package. Licensing is path-scoped; see HOT_POTQA_LICENSE_SCOPE.md and COPYRIGHT_NOTICE.md at the repository root."
+title: "QACE v11.3 strict SP-ablation materials"
+type: dataset
+authors:
+  - family-names: "Mi"
+    given-names: "Yuheng"
+    affiliation: "School of Electronics and Information Engineering, Liaoning Technical University, Huludao, Liaoning, China"
+    orcid: "https://orcid.org/0009-0007-1198-7364"
+  - family-names: "Ren"
+    given-names: "Jianhua"
+    affiliation: "School of Electronics and Information Engineering, Liaoning Technical University, Huludao, Liaoning, China"
+repository-code: "REPOSITORY_URL_CONFIRMATION_REQUIRED"
+abstract: "Sanitized aggregate audit and reproducibility package for the strict SP-only Table 4 evidence in QACE manuscript v11.3."

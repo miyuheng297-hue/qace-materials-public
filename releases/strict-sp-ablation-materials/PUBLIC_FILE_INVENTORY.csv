@@ -1,0 +1,33 @@
+relative_path,role,bytes,status
+audit/source_candidate_scan_summary.csv,aggregate audit and scan summary,1207,included
+audit/TABLE4_RECHECK.csv,aggregate audit and scan summary,830,included
+CITATION.cff,release documentation or rights template,892,included
+CODE_AVAILABILITY_DRAFT.md,release documentation or rights template,993,included
+data/primary_comparisons_40.csv,aggregate strict SP-only results or Table 4 display data,8202,included
+data/strict_sp_ablation_results.csv,aggregate strict SP-only results or Table 4 display data,1351,included
+data/table4_panel_a.csv,aggregate strict SP-only results or Table 4 display data,1094,included
+data/table4_panel_b.csv,aggregate strict SP-only results or Table 4 display data,1457,included
+data/table4_panel_b_metric_details.csv,aggregate strict SP-only results or Table 4 display data,4258,included
+DATA_AVAILABILITY_DRAFT.md,release documentation or rights template,1111,included
+GITHUB_RELEASE_INSTRUCTIONS.md,release documentation or rights template,745,included
+LICENSE_DECISION_REQUIRED.md,release documentation or rights template,1042,included
+metadata/claim_boundary.md,sanitized aggregate/provenance metadata,814,included
+metadata/configuration_display_names.csv,sanitized aggregate/provenance metadata,901,included
+metadata/configuration_registry_summary.csv,sanitized aggregate/provenance metadata,1789,included
+metadata/source_hashes.csv,sanitized aggregate/provenance metadata,497,included
+metadata/stage03_code_hashes.csv,sanitized aggregate/provenance metadata,1108,included
+metadata/stage03_provenance.csv,sanitized aggregate/provenance metadata,730,included
+PORTABLE_SHA256_MANIFEST.txt,integrity manifest; intentionally not self-hashed,2973,included
+protocol/EXPERIMENT_PROTOCOL_SANITIZED.md,sanitized protocol or statistical methods,2314,included
+protocol/STATISTICAL_METHODS.md,sanitized protocol or statistical methods,952,included
+PUBLIC_FILE_INVENTORY.csv,release documentation or rights template,2873,included
+README.md,release documentation or rights template,2468,included
+RELEASE_AUDIT.md,release documentation or rights template,1974,included
+RELEASE_REPAIR_AUDIT.json,release documentation or rights template,2206,included
+RELEASE_REPAIR_AUDIT.md,release documentation or rights template,1619,included
+scripts/audit_release_content.py,local-only aggregate validation/generation/audit code,5748,included
+scripts/generate_table4.py,local-only aggregate validation/generation/audit code,4759,included
+scripts/statistical_methods.py,local-only aggregate validation/generation/audit code,1103,included
+scripts/validate_aggregate_results.py,local-only aggregate validation/generation/audit code,4538,included
+scripts/validate_portable_manifest.py,local-only aggregate validation/generation/audit code,1629,included
+THIRD_PARTY_NOTICES_TEMPLATE.md,release documentation or rights template,1480,included

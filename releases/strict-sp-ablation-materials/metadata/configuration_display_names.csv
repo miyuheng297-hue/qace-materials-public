@@ -1,0 +1,14 @@
+configuration_id,display_name,panel_role
+UPSTREAM_TOP10,Upstream available pool,Panel A reference
+UPSTREAM_ORDER_FIXED7,Upstream order fixed-7,Panel A reference
+BGE_RANK_FIXED7,BGE rank fixed-7,Panel A reference
+SHARED_SELECTOR_FULL,Shared selector full,Panel A primary
+BGE_FLOOR_FIXED6,Shared selector fixed-6,Panel A budget control
+BGE_FLOOR_FIXED7,Shared selector fixed-7,Panel A budget control
+ABLATE_NO_BGE_RESCORING,No BGE rescoring,Panel A stress test; Panel B ablation
+ABLATE_NO_PATTERN_BLEND,No pattern blend,Panel B ablation
+ABLATE_NO_REDUNDANCY_PENALTY,No redundancy penalty,Panel B ablation
+ABLATE_NO_SELECTION_FLOOR,No selection floor,Panel B ablation
+ABLATE_NO_MIN_RECALL_REFILL,No min-recall refill,Panel B ablation
+SENSITIVITY_MIN_RECALL_LOWER,Min-recall sensitivity lower,Supplementary sensitivity
+SENSITIVITY_MIN_RECALL_HIGHER,Min-recall sensitivity higher,Supplementary sensitivity

@@ -1,0 +1,14 @@
+configuration_id,family,parent_or_reference,portable_rule,override_summary
+UPSTREAM_TOP10,configuration_reference,,select every available frozen upstream candidate up to 10,inherits no selector intervention
+UPSTREAM_ORDER_FIXED7,configuration_reference,,select first min(7,available) frozen upstream candidates,fixed budget 7
+BGE_RANK_FIXED7,configuration_reference,,select min(7,available) by fixed raw BGE ordering,fixed budget 7
+SHARED_SELECTOR_FULL,configuration,,full audited selector over the common frozen pool,effective budget capped by availability
+BGE_FLOOR_FIXED6,configuration_reference,SHARED_SELECTOR_FULL,full selector with effective target capped at min(6,available),fixed budget 6
+BGE_FLOOR_FIXED7,configuration_reference,SHARED_SELECTOR_FULL,full selector with effective target capped at min(7,available),fixed budget 7
+ABLATE_NO_PATTERN_BLEND,component_ablation,SHARED_SELECTOR_FULL,full selector with pattern-blend term disabled,pattern blend 0
+ABLATE_NO_REDUNDANCY_PENALTY,component_ablation,SHARED_SELECTOR_FULL,full selector with redundancy penalty disabled,redundancy penalty 0
+ABLATE_NO_SELECTION_FLOOR,component_ablation,SHARED_SELECTOR_FULL,full selector with selection floor disabled,selection floor 0
+ABLATE_NO_MIN_RECALL_REFILL,component_ablation,SHARED_SELECTOR_FULL,full selector without min-recall refill,min-recall budget 0
+ABLATE_NO_BGE_RESCORING,component_ablation,SHARED_SELECTOR_FULL,full selector using immutable upstream score instead of BGE rescoring,score source frozen upstream score
+SENSITIVITY_MIN_RECALL_LOWER,sensitivity_analysis,SHARED_SELECTOR_FULL,full selector with local lower min-recall setting,delta -1
+SENSITIVITY_MIN_RECALL_HIGHER,sensitivity_analysis,SHARED_SELECTOR_FULL,full selector with local higher min-recall setting,delta +1

@@ -1,0 +1,24 @@
+{
+  "schema_version": "qace_v10_hotpotqa_aggregate_config.v1",
+  "dataset_scope": "HotpotQA distractor development aggregate evaluation",
+  "sample_count": 7405,
+  "protocol_status": "corrected_post_hoc_not_preregistered",
+  "rounds": 2,
+  "configurations": {
+    "B": "Parent-order fixed-7 reference",
+    "D": "BGE floor-gated fixed-6",
+    "G": "Frozen QACE selected-evidence trace replay"
+  },
+  "shared_candidate_input": true,
+  "generation": {
+    "model_family": "llama3:8b",
+    "temperature": 0.0,
+    "seed": 20260730,
+    "top_k": 1,
+    "top_p": 1.0,
+    "num_predict": 64,
+    "num_ctx": 3900,
+    "structured_json_answer": true
+  },
+  "claim_boundary": "configuration-level descriptive comparison; G is not a fresh online selector execution"
+}

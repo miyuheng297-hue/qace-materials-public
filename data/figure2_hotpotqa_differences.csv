@@ -1,0 +1,13 @@
+comparison,marker,metric,difference_percentage_points
+D_minus_B,square,Answer EM,2.6873
+D_minus_B,square,Answer F1,3.0959
+D_minus_B,square,Support Precision,6.8697
+D_minus_B,square,Support Recall,1.4567
+D_minus_B,square,Support F1,7.2424
+D_minus_B,square,Official Joint F1,6.1370
+G_minus_B,circle,Answer EM,2.5658
+G_minus_B,circle,Answer F1,2.9998
+G_minus_B,circle,Support Precision,6.1318
+G_minus_B,circle,Support Recall,1.6361
+G_minus_B,circle,Support F1,6.4992
+G_minus_B,circle,Official Joint F1,5.5397

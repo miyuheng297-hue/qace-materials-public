@@ -1,0 +1,16 @@
+field,value
+acceptance_decision,FINAL_STRICT_SP_ABLATION_ACCEPTED: YES
+sample_count,7405
+configuration_count,13
+predefined_contrast_count,10
+comparison_record_count,40
+bootstrap_replicates,20000
+bootstrap_base_seed,20260814
+holm_configuration_level_tests,12
+holm_component_level_ablation_tests,20
+holm_sensitivity_analysis_tests,8
+scope,SP-only supporting-fact metrics; no answer or joint metrics
+finalized_stage03_terminal_state,complete
+finalized_stage03_statistics_rerun_in_acceptance_audit,no; independent recomputation only
+original_stage01_stage02_stage03_modified,no
+terminal_provenance_note,finalized aggregate omits historical route/capacity provenance fields; numeric values remain equal to the earlier audited Stage 03

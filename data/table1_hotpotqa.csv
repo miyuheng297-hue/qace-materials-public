@@ -1,0 +1,4 @@
+configuration,answer_em,answer_f1,support_precision,support_recall,support_f1,official_joint_f1
+B_parent_order_fixed7,0.500473,0.629148,0.284713,0.827481,0.417716,0.286584
+D_bge_floor_fixed6,0.527346,0.660107,0.353410,0.842048,0.490140,0.347954
+G_frozen_trace_replay,0.526131,0.659146,0.346031,0.843842,0.482708,0.341981

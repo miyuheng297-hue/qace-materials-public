@@ -1,0 +1,6 @@
+panel,check_scope,expected_count,observed_count,source,verification,status
+A,display rows,7,7,finalized strict_sp_ablation_results.csv,configuration IDs and all four aggregate numeric fields exact string equality,PASS
+B,component comparisons,5,5,finalized primary_comparisons_40.csv,target reference family metric difference CI p Holm reject replicate count and seed exact string equality,PASS
+B,all-metric detail records,20,20,finalized primary_comparisons_40.csv,five component comparisons times four metrics exact row extraction,PASS
+full aggregates,configuration rows,13,13,finalized strict_sp_ablation_results.csv,order schema finite values and metric bounds,PASS
+full comparisons,predefined records,40,40,finalized primary_comparisons_40.csv,family counts 12/20/8 replicate metadata and aggregate difference identities,PASS
