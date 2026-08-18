@@ -19,19 +19,27 @@ def digest(path: Path) -> str:
 
 def main() -> int:
     entries: dict[str, str] = {}
-    for line in MANIFEST.read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if not line:
+    for line_number, line in enumerate(MANIFEST.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
             continue
+        if not line:
+            raise SystemExit(f"invalid_manifest_line:{line_number}")
         parts = line.split(None, 1)
         if len(parts) != 2 or len(parts[0]) != 64:
             raise SystemExit(f"invalid_manifest_line:{line}")
         sha, rel = parts
         path = Path(rel)
-        if path.is_absolute() or ".." in path.parts or rel in entries:
+        if path.is_absolute() or ".." in path.parts or "\\" in rel:
             raise SystemExit(f"invalid_manifest_path:{rel}")
-        entries[rel] = sha
-    actual = {p.relative_to(ROOT).as_posix() for p in ROOT.rglob("*") if p.is_file() and p.name != MANIFEST.name}
+        normalized = path.as_posix()
+        if normalized in entries:
+            raise SystemExit(f"duplicate_manifest_path:{normalized}")
+        entries[normalized] = sha
+    actual = {
+        p.relative_to(ROOT).as_posix()
+        for p in ROOT.rglob("*")
+        if p.is_file() and p != MANIFEST and ".git" not in p.relative_to(ROOT).parts
+    }
     if set(entries) != actual:
         raise SystemExit(f"manifest_coverage_mismatch:missing={sorted(actual-set(entries))}:extra={sorted(set(entries)-actual)}")
     for rel, expected in sorted(entries.items()):

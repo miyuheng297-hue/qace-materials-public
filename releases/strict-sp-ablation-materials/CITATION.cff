@@ -1,7 +1,9 @@
 cff-version: 1.2.0
-message: "Please cite the QACE manuscript and identify this sanitized strict SP-only aggregate package. Licensing is path-scoped; see HOT_POTQA_LICENSE_SCOPE.md and COPYRIGHT_NOTICE.md at the repository root."
-title: "QACE v11.3 strict SP-ablation materials"
+message: "Please cite the QACE manuscript and this sanitized strict supporting-fact aggregate package. Licensing is path-scoped; see the repository scope and copyright notices."
+title: "QACE strict supporting-fact ablation aggregate materials"
 type: dataset
+version: "public-materials-2026-08-17"
+date-released: "2026-08-17"
 authors:
   - family-names: "Mi"
     given-names: "Yuheng"
@@ -10,5 +12,5 @@ authors:
   - family-names: "Ren"
     given-names: "Jianhua"
     affiliation: "School of Electronics and Information Engineering, Liaoning Technical University, Huludao, Liaoning, China"
-repository-code: "REPOSITORY_URL_CONFIRMATION_REQUIRED"
-abstract: "Sanitized aggregate audit and reproducibility package for the strict SP-only Table 4 evidence in QACE manuscript v11.3."
+repository-code: "https://github.com/miyuheng297-hue/qace-materials-public"
+abstract: "Sanitized aggregate-only strict supporting-fact ablation materials for the QACE manuscript."

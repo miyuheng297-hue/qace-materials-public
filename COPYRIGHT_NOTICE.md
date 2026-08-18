@@ -1,14 +1,10 @@
-# Copyright Notice
+# Copyright and Licence Notice
 
-Copyright © 2026 Yuheng Mi and Jianhua Ren.
+Copyright 2026 Yuheng Mi and Jianhua Ren for the author-owned contributions identified in the path-scoped records.
 
-The copyright and licence statements in this repository apply only to the author-owned contributions explicitly listed in [`HOT_POTQA_LICENSE_SCOPE.md`](HOT_POTQA_LICENSE_SCOPE.md) and [`MUSIQUE_LICENSE_SCOPE.md`](MUSIQUE_LICENSE_SCOPE.md). The applicable licence depends on the listed path category:
+- Author-produced documentation and figure displays listed in the scope files: CC BY 4.0.
+- Author-original validation scripts listed in the scope files: MIT.
+- Sanitized HotpotQA aggregate values and strict SP-only aggregate metadata: CC BY-SA 4.0 under `HOT_POTQA_LICENSE_SCOPE.md`.
+- Direct MuSiQue aggregate/configuration/statistical assets: CC BY 4.0 under `MUSIQUE_LICENSE_SCOPE.md`.
 
-- author-original scoped scripts: [MIT License](LICENSES/MIT.txt);
-- author-original scoped documents and HotpotQA figure asset: [Creative Commons Attribution 4.0 International](LICENSES/CC-BY-4.0.txt);
-- scoped sanitized HotpotQA aggregate results and metadata: [Creative Commons Attribution–ShareAlike 4.0 International](LICENSES/CC-BY-SA-4.0.txt).
-- scoped direct MuSiQue configuration metadata, aggregate results/statistical summary, and Figure 3 raster asset: [Creative Commons Attribution 4.0 International](LICENSES/CC-BY-4.0.txt).
-
-This notice grants no right in any third-party dataset, model, software, publication, trademark, or other material. HotpotQA attribution and source terms are described in [`HOT_POTQA_DATASET_ATTRIBUTION.md`](HOT_POTQA_DATASET_ATTRIBUTION.md), and third-party source notices are described in [`HOT_POTQA_THIRD_PARTY_NOTICES.md`](HOT_POTQA_THIRD_PARTY_NOTICES.md). MuSiQue attribution and source terms are described in [`MUSIQUE_DATASET_ATTRIBUTION.md`](MUSIQUE_DATASET_ATTRIBUTION.md), and third-party source notices are described in [`MUSIQUE_THIRD_PARTY_NOTICES.md`](MUSIQUE_THIRD_PARTY_NOTICES.md).
-
-All shared, mixed, excluded, or unconfirmed material remains pending separate rights and scope review. It is not automatically licensed by this notice.
+These notices do not grant rights in HotpotQA, MuSiQue, KG2RAG, FlagEmbedding/BGE, Meta Llama, software, publications, trademarks, or any other third-party material. The official licence texts are retained as notices only; they are not claimed as author-original works. No single repository-wide licence is asserted because the scope is path-specific.

@@ -1,14 +1,10 @@
 scan_scope,metric,value,interpretation
-candidate/selection surfaces,files_scanned,249,complete scan over candidates selection and selected-evidence surfaces
-candidate/selection surfaces,bytes_scanned,2216473111,complete byte scope
-candidate/selection surfaces,candidate_surface_files,154,excluded from release
-candidate/selection surfaces,selection_surface_files,82,excluded from release
-candidate/selection surfaces,selected_evidence_surface_files,13,excluded from release
-candidate/selection surfaces,benchmark_content_files,228,excluded from release
-candidate/selection surfaces,sample_id_files,229,excluded from release
-candidate/selection surfaces,absolute_path_files,0,must be zero in included package
-candidate/selection surfaces,credential_pattern_files,11,excluded from release; no matched content copied
-candidate/selection surfaces,ip_address_files,0,must be zero in included package
-candidate/selection surfaces,hostname_or_endpoint_pattern_files,5,excluded from release; no matched content copied
-included release package,benchmark_content_or_identifier_findings,0,package content scan passed
-included release package,absolute_path_credential_ip_hostname_findings,0,package content scan passed
+current strict public subpackage,files_scanned,28,complete scan of the finalized subpackage including its manifest
+current strict public subpackage,raw_benchmark_payload_files,0,package content scan passed
+current strict public subpackage,sample_identifier_payload_files,0,package content scan passed
+current strict public subpackage,candidate_or_selection_record_files,0,package content scan passed
+current strict public subpackage,prediction_response_or_log_files,0,package content scan passed
+current strict public subpackage,absolute_path_findings,0,package content scan passed
+current strict public subpackage,credential_value_findings,0,package content scan passed
+current strict public subpackage,private_service_reference_findings,0,package content scan passed
+private source surfaces,redistributed_files,0,not included and not rescanned for this publication-only update

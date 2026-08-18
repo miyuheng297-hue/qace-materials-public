@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate sanitized aggregate tables and their derived figure sources."""
+"""Validate sanitized aggregate tables and current figure-source relationships."""
 
 from __future__ import annotations
 
@@ -86,7 +86,10 @@ def validate_musique() -> None:
 def main() -> int:
     validate_hotpotqa()
     validate_musique()
-    print("aggregate_validation=ok")
+    strict_script = ROOT / "releases/strict-sp-ablation-materials/scripts/validate_aggregate_results.py"
+    if not strict_script.is_file():
+        raise AssertionError("strict aggregate validator is missing")
+    print("aggregate_validation=ok hotpotqa_rows=3 musique_rows=6 figure2_rows=12 figure3_rows=18 strict_validator=present")
     return 0
 
 

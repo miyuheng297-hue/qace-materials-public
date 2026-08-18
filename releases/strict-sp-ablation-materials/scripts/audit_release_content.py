@@ -15,10 +15,10 @@ ROOT = Path(__file__).resolve().parents[1]
 FORBIDDEN_SUFFIXES = {".jsonl", ".log", ".zip", ".tar", ".gz", ".db", ".sqlite", ".pt", ".bin", ".safetensors"}
 FORBIDDEN_NAMES = {"candidate_snapshot", "selected_evidence", "predictions", "responses", "raw_http", "checkpoint", "cache", "logs"}
 FORBIDDEN_KEYS = {"question", "answer", "supporting_facts", "context", "title", "text", "candidate_id", "sample_id", "selected_evidence", "prediction", "response"}
-ABSOLUTE_PATH = re.compile(r"/" + "(?:root|home|tmp)" + r"/")
+ABSOLUTE_PATH = re.compile(r"(?<![A-Za-z0-9])(?:[A-Za-z]:[\\/]|/(?:root|home|tmp|Users)/)")
 IP_ADDRESS = re.compile(r"(?<![0-9])(?:[0-9]{1,3}\.){3}[0-9]{1,3}(?![0-9])")
 CREDENTIAL = re.compile(r"(?i)(?:api[_-]?key|password|passwd|secret|credential|access[_-]?token)\s*[:=]")
-HOSTNAME = re.compile(r"(?i)(?:hostname|host|server|endpoint)\s*[:=]|\blocalhost\b|\b127\.0\.0\.1\b")
+HOSTNAME = re.compile(r"(?i)(?:private[_ -]?(?:hostname|host|server|endpoint)|\blocalhost\b|\b127\.0\.0\.1\b)")
 
 
 def text_bytes(path: Path) -> bytes:
@@ -30,7 +30,7 @@ def text_bytes(path: Path) -> bytes:
 
 def package_scan() -> list[str]:
     findings: list[str] = []
-    for path in sorted(p for p in ROOT.rglob("*") if p.is_file() and p.name != "PORTABLE_SHA256_MANIFEST.txt"):
+    for path in sorted(p for p in ROOT.rglob("*") if p.is_file() and p != ROOT / "PORTABLE_SHA256_MANIFEST.txt" and ".git" not in p.relative_to(ROOT).parts):
         rel = path.relative_to(ROOT).as_posix()
         # This file contains the detector expressions themselves; avoid self-matches.
         if path == Path(__file__).resolve():

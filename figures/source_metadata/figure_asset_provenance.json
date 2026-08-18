@@ -1,79 +1,108 @@
 {
-  "schema_version": 1,
-  "manuscript_version": "v10.6",
-  "docx_filename": "QACE_manuscript_v10_6_format_ready.docx",
-  "pdf_filename": "QACE_manuscript_v10_6_format_ready.pdf",
-  "docx_sha256": "604d83b383db8a5f09c9ac95ef354fb29474b50423a63b9ee681b1c38199d10d",
-  "pdf_sha256": "790c0e74ec5378e990b03a513be0250936564ed7aae6265efc0c8dd0002b6dd3",
-  "editable_vector_source_found": false,
-  "same_version_figure_script_found": false,
-  "notes": "PNG assets are exact copies of DOCX embedded media. PDF correspondence is by image object, dimensions, aspect ratio, and scale-normalized pixels. Figure 3 is the v10.6 three-panel result figure.",
+  "schema_version": 2,
+  "release_tag": "public-materials-2026-08-17",
+  "repository": "https://github.com/miyuheng297-hue/qace-materials-public",
+  "manuscript_source_not_distributed": true,
+  "manuscript_pdf_sha256": "782d04803b00c4eb8bf5d2392b487700f872a0cb26024072008cb0b6a751aa6b",
+  "manuscript_pages": 26,
+  "embedding_check": "Standalone PDF Form-XObject content streams match the four latest manuscript figure placements; this package distributes the standalone assets only.",
+  "editable_svg_and_plotting_scripts": "not included pending item-level authorship and public-release confirmation",
   "figures": {
     "figure1": {
-      "package_file": "figures/figure1_v106_docx_submission_equivalent.png",
-      "source_docx_member": "word/media/image1.png",
-      "source_format": "PNG",
-      "package_sha256": "9d72d42a00d9a845818d16cf81587a80161fa74d260575ada28a741d1bdcf517",
-      "docx_media_sha256": "9d72d42a00d9a845818d16cf81587a80161fa74d260575ada28a741d1bdcf517",
-      "docx_dimensions_px": [
-        4110,
-        3897
+      "png_path": "figures/Fig1.png",
+      "pdf_path": "figures/Fig1.pdf",
+      "png_sha256": "d9c60748d9d0d033e46f19de223a364b05cc573dfc2c51c896386f7659838552",
+      "pdf_sha256": "c59080e94533ce7812853033a2f0b165caf39677e681256c39f7feff5083c465",
+      "png_dimensions_px": [
+        4327,
+        3843
       ],
-      "pdf_image_object": 119,
-      "pdf_encoded_stream_sha256": "942a00fac003e3e5f865b6546b36af87ac6eabec8271e4f9947a903c423a140b",
-      "pdf_encoded_format": "png",
-      "pdf_dimensions_px": [
-        1859,
-        1763
+      "pdf_media_box_pt": [
+        0.0,
+        0.0,
+        519.2928,
+        461.232
       ],
-      "scale_normalized_mean_absolute_error": 1.907290029700306,
-      "same_version_as_v106": true,
-      "editable_vector_source_found": false,
-      "panel_count": null
+      "manuscript_page": 6,
+      "tex_include": "Fig1.pdf",
+      "tex_label": "fig:qace-overview",
+      "embedded_form_content_sha256": "8574f52a3414a585313604370d1f44b77497bb7ba26003d1823a782efcdea81b",
+      "embedded_form_match": true,
+      "source_data_match": true,
+      "source_data_note": "Exact current source-stage asset match; no experimental numeric series.",
+      "source_data": "conceptual schematic; no experimental numeric series"
     },
     "figure2": {
-      "package_file": "figures/figure2_v106_docx_submission_equivalent.png",
-      "source_docx_member": "word/media/image2.png",
-      "source_format": "PNG",
-      "package_sha256": "4f78b19f590502c5110181fb27ea1f7cafa85c5cd6f0af098d8aa97ffdf9ff68",
-      "docx_media_sha256": "4f78b19f590502c5110181fb27ea1f7cafa85c5cd6f0af098d8aa97ffdf9ff68",
-      "docx_dimensions_px": [
-        4110,
-        2314
+      "png_path": "figures/Fig2.png",
+      "pdf_path": "figures/Fig2.pdf",
+      "png_sha256": "6c14100a9af0af46213c61f3e929a5f9da47007e8ae04bf44b6ecb449990b1d9",
+      "pdf_sha256": "6ffe06d3091fa0cd68238fbc7e72e7d2f14e720967a085b5565324b9a3cb5433",
+      "png_dimensions_px": [
+        3905,
+        2336
       ],
-      "pdf_image_object": 227,
-      "pdf_encoded_stream_sha256": "6eca65f49e5e1d054284ff7456b49b25c96e3ca49f0faa6e161c893b337d7513",
-      "pdf_encoded_format": "jpeg",
-      "pdf_dimensions_px": [
-        1860,
-        1047
+      "pdf_media_box_pt": [
+        0.0,
+        0.0,
+        468.648,
+        280.52225
       ],
-      "scale_normalized_mean_absolute_error": 0.9174627658716891,
-      "same_version_as_v106": true,
-      "editable_vector_source_found": false,
-      "panel_count": null
+      "manuscript_page": 12,
+      "tex_include": "Fig2.pdf",
+      "tex_label": "fig:hotpot-differences",
+      "embedded_form_content_sha256": "695e9d3f34fa6d2dd47fd834e316bd434a4c57676dbf1acdb81ca54fe1013a69",
+      "embedded_form_match": true,
+      "source_data_match": true,
+      "source_data_note": "Source CSV is byte-for-byte identical to the public candidate.",
+      "source_data": "data/figure2_hotpotqa_differences.csv"
     },
     "figure3": {
-      "package_file": "figures/figure3_v106_docx_submission_equivalent.png",
-      "source_docx_member": "word/media/image3.png",
-      "source_format": "PNG",
-      "package_sha256": "f4ab7d1be076f77c9127c2be68652636cbcb9ac9cf46b0e88054e0c844fde762",
-      "docx_media_sha256": "f4ab7d1be076f77c9127c2be68652636cbcb9ac9cf46b0e88054e0c844fde762",
-      "docx_dimensions_px": [
-        4110,
-        2433
+      "png_path": "figures/Fig3.png",
+      "pdf_path": "figures/Fig3.pdf",
+      "png_sha256": "06664898deb5719c5fa3b6b1be7d6adf9780935c6ab7644fa83d129aa9c7cc8d",
+      "pdf_sha256": "3f67d204a4c31f50bb47382005c3c0a33765919c03e18d489b9e56ca7835598b",
+      "png_dimensions_px": [
+        4002,
+        2557
       ],
-      "pdf_image_object": 368,
-      "pdf_encoded_stream_sha256": "97d1baa3d64f1a2430ad199fc30f186d0ec3bec5ad38628fc05381eb66812cff",
-      "pdf_encoded_format": "jpeg",
-      "pdf_dimensions_px": [
-        1920,
-        1137
+      "pdf_media_box_pt": [
+        0.0,
+        0.0,
+        480.041475,
+        307.07075
       ],
-      "scale_normalized_mean_absolute_error": 1.2409423482002166,
-      "same_version_as_v106": true,
-      "editable_vector_source_found": false,
-      "panel_count": 3
+      "manuscript_page": 14,
+      "tex_include": "Fig3.pdf",
+      "tex_label": "fig:musique-validation",
+      "embedded_form_content_sha256": "869ec88ffb2e94dfb0b36c96e732f93e4154b0f34414e4c49d4f378dc567f818",
+      "embedded_form_match": true,
+      "source_data_match": true,
+      "source_data_note": "Source CSV is byte-for-byte identical to the public candidate.",
+      "source_data": "data/figure3_musique_metrics.csv"
+    },
+    "figure4": {
+      "png_path": "figures/Fig4.png",
+      "pdf_path": "figures/Fig4.pdf",
+      "png_sha256": "ce70b6a575bf37d5a3778f68877048abecac4cc40d30e59343210b85baf233f2",
+      "pdf_sha256": "2566263cc455bba2f70f9ca8a64238a6019d282358424714549b82e3d958babd",
+      "png_dimensions_px": [
+        3946,
+        4702
+      ],
+      "pdf_media_box_pt": [
+        0.0,
+        0.0,
+        474.2229520385,
+        564.0674461492
+      ],
+      "manuscript_page": 16,
+      "tex_include": "Fig4.pdf",
+      "tex_label": "fig:strict-sp-ablation",
+      "embedded_form_content_sha256": "14e87f944d7527fe0fbdd25634fd651c0d1948ac0002c8ac45abc91cd509cf8e",
+      "embedded_form_match": true,
+      "source_data_match": true,
+      "source_data_note": "Semantic CSV content is exact after CRLF/LF normalization; packaged bytes differ only by line endings.",
+      "source_data": "releases/strict-sp-ablation-materials/data/strict_sp_ablation_results.csv; releases/strict-sp-ablation-materials/data/primary_comparisons_40.csv"
     }
   }
 }

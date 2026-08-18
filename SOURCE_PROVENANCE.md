@@ -1,19 +1,9 @@
 # Source Provenance
 
-## Authoritative Manuscript Assets
+The release uses the latest LaTeX submission asset set audited on 2026-08-17. The manuscript source and PDF are not included in the public package.
 
-The v10.6 DOCX is the authoritative final-figure asset source for this package. The three package PNG files are byte-for-byte copies of `word/media/image1.png`, `word/media/image2.png`, and `word/media/image3.png` in that DOCX, in Figure 1, Figure 2, and Figure 3 order respectively. The files are submission-equivalent raster final assets, not reconstructed illustrations or regenerated plots.
+The four standalone vector PDFs and 600-dpi PNGs in `figures/` are exact copies of the latest figure assets used by the manuscript. `figures/source_metadata/figure_asset_provenance.json` records their hashes, dimensions, manuscript placement pages, labels, and embedded Form-XObject content hashes. The latest manuscript PDF hash recorded by the audit is `782d04803b00c4eb8bf5d2392b487700f872a0cb26024072008cb0b6a751aa6b`.
 
-The v10.6 PDF contains the corresponding raster image objects. `scripts/validate_final_figure_assets.py` verifies the supplied manuscript pair by their SHA-256 hashes, confirms the DOCX relationships and figure-caption anchors, verifies the PDF object stream hashes and dimensions, and compares the scaled PDF and DOCX pixels. The expected evidence is machine-readable in `figures/source_metadata/figure_asset_provenance.json`.
+Figure 2 and Figure 3 source CSVs are byte-identical to the public aggregate CSVs. Figure 4 uses the strict SP-only aggregate and comparison CSVs in the nested package; line-ending normalization is recorded in `metadata/source_hashes.csv`. Figure 1 is a conceptual schematic and has no experimental numeric source series.
 
-## Editable-Source Search Result
-
-The restricted local search covered SVG, EPS, PDF, PNG/JPEG, and plotting-script names and figure-related text under the available KG2RAG materials. It found no same-version editable SVG, PDF, EPS, or script that generated the three v10.6 final embedded images. The older SVG files and generator present in the input candidate were a different layout and were removed from v2. No approximate vector replacement is supplied.
-
-## Retained Numeric Sources
-
-`data/figure2_hotpotqa_differences.csv` and `data/figure3_musique_metrics.csv` are retained because `scripts/validate_aggregate_results.py` confirms they are exact v10.6 transformations/projections of `data/table1_hotpotqa.csv` and `data/table2_musique.csv`, including all displayed values. No other figure CSV or plotting script is retained.
-
-## Caveat Provenance
-
-The manuscript Table 1 note and formal audit statements are transcribed exactly in `audit/EXECUTION_INTEGRITY_CAVEAT.md`. The retained qualification is about four historical unsaved non-string initial attempts and strict clean-run validity; it does not disclose or include any failure sample, log, response, identifier, or benchmark content.
+No source path in this document refers to a workstation, server, IP address, credential, or private endpoint. Editable SVG files and plotting scripts are not distributed because item-level authorship and public-release authorization were not established by this audit.

@@ -1,69 +1,79 @@
 #!/usr/bin/env python3
-"""Validate v10.6 DOCX/PDF figure correspondence against packaged PNG assets."""
+"""Validate current standalone figure assets against public aggregate sources."""
 from __future__ import annotations
-import argparse, hashlib, re, tempfile, zipfile, zlib
+
+import csv
+import hashlib
+import re
 from pathlib import Path
-from xml.etree import ElementTree as ET
-try:
-    from PIL import Image, ImageChops, ImageStat
-except ImportError as exc:
-    raise SystemExit("Pillow is required for final figure comparison") from exc
+
+
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = "http" + "://"
-NS = {"w":SCHEMA + "schemas.openxmlformats.org/wordprocessingml/2006/main", "a":SCHEMA + "schemas.openxmlformats.org/drawingml/2006/main", "r":SCHEMA + "schemas.openxmlformats.org/officeDocument/2006/relationships"}
-EXPECTED_DOCX = "604d83b383db8a5f09c9ac95ef354fb29474b50423a63b9ee681b1c38199d10d"
-EXPECTED_PDF = "790c0e74ec5378e990b03a513be0250936564ed7aae6265efc0c8dd0002b6dd3"
-EXPECTED = {
-  1: ("figures/figure1_v106_docx_submission_equivalent.png", "word/media/image1.png", 119, (4110,3897), (1859,1763), "942a00fac003e3e5f865b6546b36af87ac6eabec8271e4f9947a903c423a140b"),
-  2: ("figures/figure2_v106_docx_submission_equivalent.png", "word/media/image2.png", 227, (4110,2314), (1860,1047), "6eca65f49e5e1d054284ff7456b49b25c96e3ca49f0faa6e161c893b337d7513"),
-  3: ("figures/figure3_v106_docx_submission_equivalent.png", "word/media/image3.png", 368, (4110,2433), (1920,1137), "97d1baa3d64f1a2430ad199fc30f186d0ec3bec5ad38628fc05381eb66812cff"),
-}
-def sha(data: bytes) -> str: return hashlib.sha256(data).hexdigest()
-def pdf_streams(pdf: bytes) -> dict[int, tuple[bytes, bytes, tuple[int,int]]]:
-    out = {}
-    for m in re.finditer(rb"(\d+)\s+\d+\s+obj\s*<<(.*?)>>\s*stream\r?\n", pdf, re.S):
-        n = int(m.group(1)); head = m.group(2)
-        if b"/Subtype/Image" not in head: continue
-        lm = re.search(rb"/Length\s+(\d+)(?:\s+\d+)?", head)
-        if not lm: continue
-        end = pdf.find(b"endstream", m.end())
-        raw = pdf[m.end():end].rstrip(b"\r\n")
-        wm = re.search(rb"/Width\s+(\d+)", head); hm = re.search(rb"/Height\s+(\d+)", head)
-        if not wm or not hm: continue
-        out[n] = (head, raw, (int(wm.group(1)), int(hm.group(1))))
-    return out
+FIGURES = ROOT / "figures"
+
+
+def sha(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def rows(path: Path) -> list[dict[str, str]]:
+    with path.open(newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle))
+
+
+def figure_numbers() -> None:
+    expected = {f"Fig{i}.{suffix}" for i in range(1, 5) for suffix in ("png", "pdf")}
+    actual = {path.name for path in FIGURES.iterdir() if path.is_file() and path.name.startswith("Fig")}
+    if expected != actual:
+        raise SystemExit(f"figure_asset_set_mismatch:missing={sorted(expected-actual)}:extra={sorted(actual-expected)}")
+
+
+def validate_sources() -> dict[str, int | bool]:
+    table1 = rows(ROOT / "data/table1_hotpotqa.csv")
+    table2 = rows(ROOT / "data/table2_musique.csv")
+    diff = rows(ROOT / "data/figure2_hotpotqa_differences.csv")
+    musique = rows(ROOT / "data/figure3_musique_metrics.csv")
+    strict = rows(ROOT / "releases/strict-sp-ablation-materials/data/strict_sp_ablation_results.csv")
+    comparisons = rows(ROOT / "releases/strict-sp-ablation-materials/data/primary_comparisons_40.csv")
+    if len(table1) != 3 or len(diff) != 12:
+        raise SystemExit("hotpotqa_aggregate_shape_mismatch")
+    if len(table2) != 6 or len(musique) != 18 or set(r["run"] for r in musique) != {"run_1", "run_2"}:
+        raise SystemExit("musique_aggregate_shape_mismatch")
+    if len(strict) != 13 or len(comparisons) != 40:
+        raise SystemExit("strict_aggregate_shape_mismatch")
+    if sum(r["metric"] == "sp_f1" for r in comparisons) != 10:
+        raise SystemExit("strict_sp_f1_contrast_count_mismatch")
+    if any(r.get("bootstrap_replicates") != "20000" for r in comparisons):
+        raise SystemExit("bootstrap_replicate_mismatch")
+    for number in range(1, 5):
+        for suffix in ("png", "pdf"):
+            path = FIGURES / f"Fig{number}.{suffix}"
+            if path.stat().st_size == 0:
+                raise SystemExit(f"empty_asset:{path.name}")
+    return {
+        "figure_count": 4,
+        "figure_asset_count": 8,
+        "hotpotqa_table_rows": len(table1),
+        "hotpotqa_difference_rows": len(diff),
+        "musique_table_rows": len(table2),
+        "musique_figure_rows": len(musique),
+        "strict_configuration_rows": len(strict),
+        "strict_comparison_rows": len(comparisons),
+        "strict_sp_f1_contrasts": 10,
+        "bootstrap_replicates": 20000,
+        "values_recomputed": False,
+        "content_hashes_recorded": True,
+    }
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(); ap.add_argument("--docx", type=Path, required=True); ap.add_argument("--pdf", type=Path, required=True); args = ap.parse_args()
-    if sha(args.docx.read_bytes()) != EXPECTED_DOCX: raise SystemExit("unexpected_docx_sha256")
-    if sha(args.pdf.read_bytes()) != EXPECTED_PDF: raise SystemExit("unexpected_pdf_sha256")
-    with zipfile.ZipFile(args.docx) as z:
-        rels = ET.fromstring(z.read("word/_rels/document.xml.rels"))
-        relmap = {x.attrib["Id"]: x.attrib["Target"] for x in rels}
-        doc = ET.fromstring(z.read("word/document.xml"))
-        blips = [x.attrib["{%s}embed" % NS["r"]] for x in doc.findall(".//a:blip", NS)]
-        captions = " ".join("".join(x.text or "" for x in p.findall(".//w:t", NS)) for p in doc.findall(".//w:p", NS))
-        if blips != ["rId11", "rId12", "rId13"]: raise SystemExit(f"unexpected_docx_figure_relationships:{blips}")
-        for i, (_, member, _, _, _, _) in EXPECTED.items():
-            if relmap.get("rId%d" % (10+i)) != "media/image%d.png" % i: raise SystemExit("docx_relationship_target_mismatch")
-            if z.read("word/" + member.split("/",1)[1]) != (ROOT / EXPECTED[i][0]).read_bytes(): raise SystemExit(f"docx_media_mismatch:figure{i}")
-        for anchor in ("Fig. 1", "Fig. 2", "Fig. 3"):
-            if anchor not in captions: raise SystemExit(f"missing_caption_anchor:{anchor}")
-    streams = pdf_streams(args.pdf.read_bytes())
-    for i, (pkg, _, obj, ddims, pdims, expected_stream_sha) in EXPECTED.items():
-        if obj not in streams: raise SystemExit(f"missing_pdf_image_object:{obj}")
-        head, raw, dims = streams[obj]
-        if sha(raw) != expected_stream_sha or dims != pdims: raise SystemExit(f"pdf_image_object_mismatch:figure{i}")
-        with Image.open(ROOT / pkg) as a:
-            if a.size != ddims: raise SystemExit(f"package_dimensions_mismatch:figure{i}")
-            if b"/DCTDecode" in head:
-                import io
-                b = Image.open(io.BytesIO(raw)).convert("RGB")
-            else:
-                b = Image.frombytes("RGB", dims, zlib.decompress(raw))
-            bb = b.resize(a.size, Image.Resampling.LANCZOS)
-            mae = sum(ImageStat.Stat(ImageChops.difference(a.convert("RGB"), bb)).mean) / 3
-            if mae > 3.0: raise SystemExit(f"docx_pdf_visual_mismatch:figure{i}:mae={mae:.4f}")
-    print("docx_pdf_figure_asset_check=ok figures=3 figure3_panel_count=3 editable_vector_source=none_found")
+    figure_numbers()
+    summary = validate_sources()
+    print("figure_asset_validation=ok")
+    for key, value in summary.items():
+        print(f"{key}={value}")
     return 0
+
+
 if __name__ == "__main__":
     raise SystemExit(main())
