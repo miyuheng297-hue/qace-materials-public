@@ -56,19 +56,21 @@ What the layer supports:
 | selection-floor sensitivity (Fig 3) | yes |
 | mechanism attribution (Table 5) | yes |
 | answer-layer means (Section 4.9) | yes |
-| knowledge-graph expansion condition (Section 4.6) | the derived subgraph data are not redistributed; the builder script is included |
-| MuSiQue results | not part of this manuscript |
+| knowledge-graph expansion condition (Section 4.6) | yes, via `data/kg_expansion/` |
+| 2WikiMultiHopQA (Section 4.5) | composite-selector side and all aggregate values; the candidate scores are not recoverable |
 
-See `docs/REPRODUCTION.md` for the run order and `docs/DATA_DICTIONARY.md` for every field.
+See `docs/REPRODUCTION.md` for the run order, `docs/DATA_DICTIONARY.md` for every field, and
+`docs/ZENODO_STEPS.md` for archiving the release and obtaining a DOI.
 
 ## Licensing
 
 Licensing is path-scoped. Author-produced documentation and figure displays are covered by CC BY 4.0 where listed; author-original validation scripts are covered by MIT where listed; sanitized HotpotQA aggregate material is covered by the stated CC BY-SA 4.0 scope; and direct MuSiQue aggregate material is covered by its CC BY 4.0 scope. The scope files and notices are controlling and do not grant rights in third-party datasets, models, software, or publications.
 
-The scripts in `analysis/` and the derived data in `data/` are author-generated and are released
-under MIT (see `LICENSES/MIT.txt`) and CC BY 4.0 respectively; they contain no third-party
-dataset content. The open licence for the repository as a whole remains to be confirmed (see
-`LICENSE_DECISION_REQUIRED.md`).
+The repository is released under the **MIT licence** (`LICENSE`), which covers the scripts under
+`analysis/` and `scripts/`, the documentation under `docs/`, and the derived data under `data/`.
+It grants no rights in third-party datasets, models, software or publications; HotpotQA and
+2WikiMultiHopQA keep their own licences (see the attribution and third-party notice files).
+`LICENSE_DECISION_REQUIRED.md` is kept for historical traceability only.
 
 Editable SVG files and plotting scripts of the earlier release are intentionally not included in
 that release because their item-level public-release authorization was not established by the

@@ -82,6 +82,29 @@ context window 3,900, fixed seed, identical prompt for both conditions.
 
 Gold answers are not redistributed; they are recomputed from the public HotpotQA file.
 
+
+---
+
+## `data/kg_expansion/candidate_snapshot_scores.jsonl`
+
+Same schema as `data/candidate_snapshot_scores.jsonl`, but for the knowledge-graph-expansion
+condition described in Section 4.6 of the manuscript: 7,405 lines, mean pool size 9.49 instead
+of 10.00. Use it with `data/selections/hotpotqa_composite_full.tsv` to reproduce the
+expansion-on row of Table 2 and the expansion-on rows of Table 3.
+
+## `data/2wiki_aggregate.csv`
+
+Aggregate 2WikiMultiHopQA results for the seven selectors under both reporting conventions
+(3,000 questions). Per-question 2Wiki supporting-fact F1 for the composite selector is
+reproducible from `data/selections/2wiki_composite_full.tsv` together with the public
+2WikiMultiHopQA gold annotations.
+
+**Known limitation.** The 2WikiMultiHopQA candidate-level scores were produced on a compute node
+that is no longer available, so the count-matched reranker for 2Wiki cannot be recomputed from
+the released files alone; the released files support the composite-selector side and all
+aggregate values. The HotpotQA analyses, which carry the primary claims of the manuscript, are
+fully reproducible from the released data.
+
 ---
 
 ## Reproducibility checks
