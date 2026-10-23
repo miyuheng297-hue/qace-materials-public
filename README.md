@@ -1,6 +1,8 @@
 # QACE Research Materials
 
-This repository contains the public aggregate-materials package associated with the QACE manuscript. It is an audit and inspection package, not an end-to-end implementation or rerun release.
+This repository contains the public materials associated with the QACE manuscript. It has two
+layers: an aggregate-only audit package (release `public-materials-2026-08-17`, unchanged) and,
+added on 2026-10-23, a reproducibility package for the PLOS ONE submission.
 
 ## Current release
 
@@ -16,10 +18,59 @@ This repository contains the public aggregate-materials package associated with 
 - The latest four author-produced figure displays as PNG and vector PDF files in `figures/`.
 - Scope, attribution, third-party notices, provenance, integrity manifests, and validation scripts.
 
-The package does not contain raw benchmark text, questions, answers, titles, paragraphs, supporting-fact records, sample IDs, candidate or selection records, predictions, responses, logs, caches, checkpoints, credentials, private paths, or model/software payloads. The strict package is SP-only and does not support Answer EM/F1, Joint, end-to-end QA, latency, token, memory, cost, or resource claims.
+The aggregate package does not contain raw benchmark text, questions, answers, titles, paragraphs, supporting-fact records, candidate or selection records, predictions, responses, logs, caches, checkpoints, credentials, private paths, or model/software payloads. The strict package is SP-only and does not support Answer EM/F1, Joint, end-to-end QA, latency, token, memory, cost, or resource claims.
+
+## Reproducibility package (added 2026-10-23)
+
+The PLOS ONE submission requires that the code and the data underlying every reported number be
+publicly available without restriction at the time of publication. A reproducibility layer is
+therefore added at the repository root:
+
+```
+analysis/    analysis scripts (Python 3.12)
+data/        machine-readable data for every table and figure in the manuscript
+docs/        REPRODUCTION.md and DATA_DICTIONARY.md
+requirements.txt
+```
+
+**Scope change.** Unlike the aggregate package above, this layer contains per-question records:
+sample identifiers, candidate scores, selected-fact identifiers, per-question metrics and
+generated answers. It deliberately contains **no benchmark sentence text, no titles, no
+questions and no gold answers**. Every candidate fact is identified by
+
+```
+fact_id = sha256("title##sentence_index")[:16]
+```
+
+which is recomputed locally from the public HotpotQA and 2WikiMultiHopQA distributions. This
+keeps the no-text policy of the aggregate package while still allowing every number in the
+manuscript to be recomputed.
+
+What the layer supports:
+
+| item | supported |
+|---|---|
+| count-matched comparison (Table 2, Table 3, Fig 2) | yes |
+| ranking under two conventions (Table 4, Fig 1) | yes |
+| equivalence testing (TOST) | yes |
+| selection-floor sensitivity (Fig 3) | yes |
+| mechanism attribution (Table 5) | yes |
+| answer-layer means (Section 4.9) | yes |
+| knowledge-graph expansion condition (Section 4.6) | the derived subgraph data are not redistributed; the builder script is included |
+| MuSiQue results | not part of this manuscript |
+
+See `docs/REPRODUCTION.md` for the run order and `docs/DATA_DICTIONARY.md` for every field.
 
 ## Licensing
 
 Licensing is path-scoped. Author-produced documentation and figure displays are covered by CC BY 4.0 where listed; author-original validation scripts are covered by MIT where listed; sanitized HotpotQA aggregate material is covered by the stated CC BY-SA 4.0 scope; and direct MuSiQue aggregate material is covered by its CC BY 4.0 scope. The scope files and notices are controlling and do not grant rights in third-party datasets, models, software, or publications.
 
-Editable SVG files and plotting scripts are intentionally not included in this release because their item-level public-release authorization was not established by the local audit. The immutable older tag `public-materials-2026-08` retains the previous package unchanged.
+The scripts in `analysis/` and the derived data in `data/` are author-generated and are released
+under MIT (see `LICENSES/MIT.txt`) and CC BY 4.0 respectively; they contain no third-party
+dataset content. The open licence for the repository as a whole remains to be confirmed (see
+`LICENSE_DECISION_REQUIRED.md`).
+
+Editable SVG files and plotting scripts of the earlier release are intentionally not included in
+that release because their item-level public-release authorization was not established by the
+local audit. The immutable older tag `public-materials-2026-08` retains the previous package
+unchanged.
