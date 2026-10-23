@@ -36,7 +36,7 @@
 ## 第四步:在 GitHub 创建一个 Release
 
 1. 打开 https://github.com/miyuheng297-hue/qace-materials-public/releases/new
-2. **Choose a tag** 输入:`plos-one-2026-10`,点 **Create new tag on publish**
+2. **Choose a tag** 下拉里已经有 `plos-one-2026-10`(已推送),直接选它;若下拉没有,手动输入同名字符串
 3. **Release title** 填:`PLOS ONE submission package (2026-10-23)`
 4. **Describe this release** 粘贴下面的内容:
 
