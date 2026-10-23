@@ -99,11 +99,11 @@ Aggregate 2WikiMultiHopQA results for the seven selectors under both reporting c
 reproducible from `data/selections/2wiki_composite_full.tsv` together with the public
 2WikiMultiHopQA gold annotations.
 
-**Known limitation.** The 2WikiMultiHopQA candidate-level scores were produced on a compute node
-that is no longer available, so the count-matched reranker for 2Wiki cannot be recomputed from
-the released files alone; the released files support the composite-selector side and all
-aggregate values. The HotpotQA analyses, which carry the primary claims of the manuscript, are
-fully reproducible from the released data.
+**2WikiMultiHopQA candidate scores.**
+`data/2wiki_candidate_snapshot_scores.jsonl` contains the frozen candidate-level scores for the
+2,998-question 2WikiMultiHopQA subset used in Section 4.5: 3,000 lines, mean pool size 9.996,
+same schema as the HotpotQA file. Together with `data/selections/2wiki_composite_full.tsv` and
+the public gold annotations it reproduces the 2Wiki rows of Table 2.
 
 ---
 

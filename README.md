@@ -57,7 +57,7 @@ What the layer supports:
 | mechanism attribution (Table 5) | yes |
 | answer-layer means (Section 4.9) | yes |
 | knowledge-graph expansion condition (Section 4.6) | yes, via `data/kg_expansion/` |
-| 2WikiMultiHopQA (Section 4.5) | composite-selector side and all aggregate values; the candidate scores are not recoverable |
+| 2WikiMultiHopQA (Section 4.5) | yes, via `data/2wiki_candidate_snapshot_scores.jsonl` |
 
 See `docs/REPRODUCTION.md` for the run order, `docs/DATA_DICTIONARY.md` for every field, and
 `docs/ZENODO_STEPS.md` for archiving the release and obtaining a DOI.
